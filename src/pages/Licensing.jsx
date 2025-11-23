@@ -82,7 +82,7 @@ export default function Licensing() {
                     <section>
                         <h2 className="text-3xl font-semibold mb-6 text-gray-300/60">Contact</h2>
                         <p>
-                            For any questions or clarification regarding licensing, please contact our team at <span className="text-cyan-400">support@codejourney.com</span>. We are happy to provide guidance and assistance regarding proper use of our materials.
+                            For any questions or clarification regarding licensing, please contact our team at <span className="text-cyan-400">work.codejourney@gmail.com</span>. We are happy to provide guidance and assistance regarding proper use of our materials.
                         </p>
                     </section>
 

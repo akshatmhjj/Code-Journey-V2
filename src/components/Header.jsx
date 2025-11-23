@@ -37,9 +37,9 @@ const Header = () => {
       bgColor: "#271E37",
       textColor: "#fff",
       links: [
-        { label: "Hall Of Badges", ariaLabel: "", href: "/badges" },
         { label: "Email", ariaLabel: "Email us" },
         { label: "LinkedIn", ariaLabel: "LinkedIn" },
+        { label: "Hall Of Badges", ariaLabel: "", href: "/badges" },
       ],
     },
   ];
