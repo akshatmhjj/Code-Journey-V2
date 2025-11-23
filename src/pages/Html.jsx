@@ -173,7 +173,7 @@ const HTML = () => {
     ];
 
     return (
-        <div className="relative text-gray-200 min-h-screen pt-6 pb-20 px-5 md:px-14 overflow-hidden">
+        <div className="relative text-gray-200 min-h-screen pt-6 pb-20 px-3 md:px-14 overflow-hidden">
             <div className="fixed inset-0 -z-10">
                 <ColorBends
                     colors={["#ff5c7a", "#8a5cff", "#00ffd1"]}
