@@ -119,7 +119,7 @@ const CJEditorLanding = () => {
                     transition={{ delay: 0.3, duration: 1 }}
                     className="max-w-2xl mt-6 text-lg text-gray-300"
                 >
-                    A cinematic online IDE by <span className="text-blue-400 font-semibold">Code Journey</span> -
+                    An online IDE by <span className="text-blue-400 font-semibold">Code Journey</span> -
                     built for creativity, collaboration, and the joy of building beautiful code.
                 </motion.p>
 
