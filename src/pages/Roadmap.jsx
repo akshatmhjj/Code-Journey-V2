@@ -6,7 +6,7 @@ const STAGES = [
     {
         id: "internet",
         title: "How the Internet Works",
-        time: "2–3 days",
+        time: "2-3 days",
         learns: [
             "What happens when you type a URL",
             "How DNS finds websites",
@@ -16,7 +16,7 @@ const STAGES = [
         mistakes: [
             "Thinking the browser is the internet",
             "Ignoring HTTP vs HTTPS",
-            "Not understanding client–server roles",
+            "Not understanding client-server roles",
         ],
         desc:
             "Learn how data travels across the world, how browsers talk to servers, and how webpages reach your screen.",
@@ -29,8 +29,8 @@ const STAGES = [
 
     {
         id: "html",
-        title: "HTML — Structure",
-        time: "5–7 days",
+        title: "HTML - Structure",
+        time: "7-10 days",
         learns: [
             "Semantic HTML elements",
             "Headings, sections, and layout structure",
@@ -53,8 +53,8 @@ const STAGES = [
 
     {
         id: "css",
-        title: "CSS — Layout & Design",
-        time: "7–10 days",
+        title: "CSS - Layout & Design",
+        time: "10-15 days",
         learns: [
             "Box model and spacing",
             "Flexbox and Grid",
@@ -77,8 +77,8 @@ const STAGES = [
 
     {
         id: "javascript",
-        title: "JavaScript — Logic",
-        time: "10–14 days",
+        title: "JavaScript - Logic",
+        time: "30-45 days",
         learns: [
             "Variables, functions, and conditions",
             "DOM manipulation",
@@ -102,7 +102,7 @@ const STAGES = [
     {
         id: "database",
         title: "Databases",
-        time: "5–7 days",
+        time: "20-35 days",
         learns: [
             "What databases are and why they exist",
             "SQL vs NoSQL",
@@ -272,7 +272,7 @@ export default function RoadmapPage() {
                         📘 Follow the stages in order. Each one prepares you for the next.
                     </p>
                     <p>
-                        💡 Don’t rush forward — understanding compounds over time.
+                        💡 Don’t rush forward - understanding compounds over time.
                     </p>
                     <p>
                         🔍 Build small things as you go. Progress beats perfection.
@@ -372,7 +372,7 @@ function StageCard({ stage, index }) {
             className="relative"
         >
             
-            <div className="mb-4 text-sm text-cyan-300 flex items-center gap-3">
+            <div className="mb-4 font-semibold text-sm text-cyan-300 flex items-center gap-3">
                 <span>Stage {index + 1}</span>
                 {stage.time && (
                     <span className="text-gray-400">· {stage.time}</span>
