@@ -32,6 +32,7 @@
     "highlight.js": "^11.11.1",
     "js-beautify": "^1.15.4",
     "ldrs": "^1.1.7",
+    "lottie-react": "^2.4.1",
     "lucide-react": "^0.545.0",
     "markdown-it": "^14.1.0",
     "motion": "^12.23.22",

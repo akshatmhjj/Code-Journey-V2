@@ -24,6 +24,7 @@ import ChatPage from './pages/ChatPage';
 import CJAILanding from './pages/CJAILanding';
 import ProtectedRoute from "./route/ProtectedRoute";
 import BadgesHall from "./pages/BadgesHall";
+import Roadmap from './pages/Roadmap';
 
 import { BadgeProvider } from "./context/BadgeContext";
 import BadgeUnlockModal from "./components/BadgeUnlockModal";
@@ -48,6 +49,7 @@ function App({ currentUser }) {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route path="/roadmap" element={<Roadmap />} />
             <Route path="/Faq" element={<Faq />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
