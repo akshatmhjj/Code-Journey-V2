@@ -178,14 +178,14 @@ export default function RoadmapPage() {
             </div>
 
             {/* HERO */}
-            <section className="min-h-[90vh] flex flex-col justify-center items-center text-center px-6 relative z-10">
+            <section className="min-h-[90vh] flex flex-col justify-center items-center text-center px-6 relative z-10 mb-24">
 
                 
                 <motion.p
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
-                    className="mb-6 text-sm md:text-base text-gray-400 max-w-xl"
+                    className="mb-6 mt-26 text-sm md:text-base text-gray-400 max-w-xl"
                 >
                     Most beginners don’t fail at web development.
                     They fail at knowing <span className="text-gray-300">what to learn first</span>.
@@ -196,9 +196,9 @@ export default function RoadmapPage() {
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1 }}
-                    className="text-5xl md:text-7xl font-extrabold leading-tight
-      bg-clip-text text-transparent
-      bg-gradient-to-r from-cyan-300 via-blue-400 to-indigo-400"
+                    className="text-4xl md:text-7xl font-extrabold leading-tight
+                    bg-clip-text text-transparent
+                    bg-gradient-to-r from-cyan-300 via-blue-400 to-indigo-400"
                 >
                     A Web Development Roadmap
                     <br />
@@ -212,7 +212,7 @@ export default function RoadmapPage() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.4 }}
-                    className="mt-8 max-w-2xl text-lg md:text-xl text-gray-300"
+                    className="mt-8 max-w-2xl text-md md:text-xl text-gray-300"
                 >
                     No trends. No noise. No “learn everything”.
                     <br />
@@ -225,7 +225,7 @@ export default function RoadmapPage() {
                     animate={{ scaleX: 1 }}
                     transition={{ delay: 0.7, duration: 0.6 }}
                     className="mt-12 h-[2px] w-48 origin-center
-      bg-gradient-to-r from-transparent via-cyan-400 to-transparent"
+                    bg-gradient-to-r from-transparent via-cyan-400 to-transparent"
                 />
 
                 
