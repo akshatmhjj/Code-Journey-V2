@@ -365,7 +365,7 @@ function RoadmapMap({ stages, progress }) {
 function StageCard({ stage, index }) {
     return (
         <motion.div
-            initial={{ opacity: 0, y: 60 }}
+            initial={{ opacity: 0, y: 2 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
