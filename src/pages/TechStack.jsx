@@ -63,13 +63,14 @@ export default function TechStack() {
                 {/* HERO */}
                 <section>
                     <motion.h1
-                        initial={{ opacity: 0, y: 40 }}
+                        initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         className="text-5xl md:text-6xl font-extrabold leading-tight mb-10"
                     >
-                        <span className="block text-gray-200">What really is</span>
-                        <span className="block bg-gradient-to-r from-cyan-400 to-indigo-400 bg-clip-text text-transparent">
-                        a Tech Stack ?
+                        <span className="block text-gray-200">What really is 
+                            <span className="block bg-gradient-to-r from-cyan-400 to-indigo-400 bg-clip-text text-transparent">
+                            a Tech Stack ?
+                            </span>
                         </span>
                     </motion.h1>
 
@@ -132,7 +133,7 @@ export default function TechStack() {
                             return (
                                 <motion.article
                                     key={item.title}
-                                    initial={{ opacity: 0, y: 30 }}
+                                    initial={{ opacity: 0, y: 15 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: i * 0.1 }}

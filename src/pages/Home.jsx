@@ -19,7 +19,7 @@ const Home = () => {
                         text="Begin Your Adventure in Web Development Today"
                         disabled={false}
                         speed={3}
-                        className="text-4xl sm:text-5xl sm:text-7xl font-semibold text-white mb-10 max-w-3xl mx-auto"
+                        className="text-4xl sm:text-7xl font-semibold text-white mb-10 max-w-3xl mx-auto"
                     />
 
                     <p className="text-md sm:text-xl text-indigo-300 mb-10 max-w-2xl">

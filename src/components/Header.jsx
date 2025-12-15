@@ -11,7 +11,7 @@ const Header = () => {
 
   const items = [
     {
-      label: "Tech-Stack",
+      label: "Tech-Stack", 
       bgColor: "#0D0716",
       textColor: "#fff",
       links: [

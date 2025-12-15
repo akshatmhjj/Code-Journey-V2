@@ -10,46 +10,72 @@ import {
   Globe,
   Code2,
   GraduationCap,
-  Rocket,
 } from "lucide-react";
+import { useEffect, useState } from "react";
 
-const handleAnimationComplete = () => {
-  console.log("Hero animation completed!");
+const useCountUp = (end, duration = 1200) => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let start = 0;
+    const increment = end / (duration / 16);
+
+    const counter = setInterval(() => {
+      start += increment;
+      if (start >= end) {
+        setCount(end);
+        clearInterval(counter);
+      } else {
+        setCount(Math.floor(start));
+      }
+    }, 16);
+
+    return () => clearInterval(counter);
+  }, [end, duration]);
+
+  return count;
 };
+
 
 const About = () => {
   const values = [
     {
       icon: Target,
       title: "Clear Direction",
-      description: "We map every learner's path step-by-step - no confusion, only progress.",
+      description:
+        "Every learner follows a structured path — knowing what to learn, why it matters, and what comes next.",
     },
     {
       icon: Lightbulb,
-      title: "Creative Learning",
-      description: "We believe in making learning interactive, inspiring, and fun.",
+      title: "Concept-Driven Learning",
+      description:
+        "We focus on fundamentals and mental models instead of shortcuts or surface-level tutorials.",
     },
     {
       icon: Zap,
-      title: "Empowerment",
-      description: "Turning curiosity into confidence through hands-on projects.",
+      title: "Hands-On Growth",
+      description:
+        "Learning sticks when you build. Practice and projects are part of every step.",
     },
     {
       icon: Award,
-      title: "Excellence",
-      description: "Our goal: help you master development the right way - not the fast way.",
+      title: "Long-Term Mastery",
+      description:
+        "We optimize for deep understanding — skills that grow with your career.",
     },
   ];
 
   const impactStats = [
-    { icon: Users, label: "Active Learners", value: "12K+" },
-    { icon: Code2, label: "Lessons Completed", value: "45K+" },
-    { icon: GraduationCap, label: "Developers Trained", value: "3.2K+" },
-    { icon: Globe, label: "Countries Reached", value: "37+" },
+    { icon: Users, label: "Active Learners", value: 12 },
+    { icon: Code2, label: "Lessons Completed", value: 45 },
+    { icon: GraduationCap, label: "Developers Trained", value: 20 },
+    { icon: Globe, label: "Countries Reached", value: 3 },
   ];
+
 
   return (
     <>
+
       <div className="fixed inset-0 -z-10">
         <Aurora
           colorStops={["#7CFF67", "#B19EEF", "#5227FF"]}
@@ -59,83 +85,124 @@ const About = () => {
         />
       </div>
 
-      <div className="relative w-full min-h-screen flex flex-col items-center p-6 gap-32 py-24">
+      <div className="relative w-full min-h-screen flex flex-col items-center px-6 py-24 gap-28">
 
-        <section className="relative text-center max-w-5xl z-10 mt-32 mb-28">
-          <h1 className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-white via-purple-200 to-white bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(82,39,255,0.3)] mb-12">
+        {/* ---------------- HERO ---------------- */}
+        <section className="relative text-center max-w-4xl z-10 mt-28">
+          <h1 className="text-5xl md:text-6xl font-semibold bg-gradient-to-r from-white via-purple-200 to-white bg-clip-text text-transparent mb-8">
             <TypeText
-              text={[
-                "Our Story. Your Journey.",
-                "From Zero to Developer Hero.",
-                "Code. Create. Conquer.",
-                "Learn Today, Lead Tomorrow.",
-              ]}
-              typingSpeed={65}
-              pauseDuration={1500}
+              text={["About Code Journey"]}
+              typingSpeed={60}
+              pauseDuration={1200}
               showCursor={true}
-              cursorCharacter="|"
             />
           </h1>
 
-          <p className="text-xl md:text-2xl text-white/90 leading-relaxed font-light tracking-wide">
-            Code Journey was born from a simple idea - learning to code should be{" "}
-            <span className="text-purple-300 font-semibold">
-              clear, structured, and human.
-            </span>{" "}
-            We're here to guide every learner from their first HTML tag to their first tech job,
-            with clarity and confidence.
+          <p className="text-lg md:text-xl text-white/85 leading-relaxed font-light">
+            Code Journey exists to make learning web development{" "}
+            <span className="text-purple-300 font-medium">
+              structured, intentional, and human
+            </span>
+            . We guide learners from fundamentals to real-world confidence —
+            without overwhelm.
           </p>
+        </section>
 
-          <div className="mt-12 flex justify-center">
-            <Rocket className="w-14 h-14 text-purple-500 animate-pulse drop-shadow-lg" />
+        {/* ----------- MOTIVATIONAL QUOTE ----------- */}
+        <section className="max-w-3xl text-center">
+          <p className="text-xl italic text-white/80">
+            “You don’t need to learn everything.
+            <span className="text-purple-300"> You need to learn the right things, in the right order.</span>”
+          </p>
+        </section>
+
+        {/* ----------- IMPACT STATS ----------- */}
+        <section className="relative z-10 w-full max-w-6xl">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {impactStats.map((stat, index) => {
+              const Icon = stat.icon;
+              const count = useCountUp(stat.value);
+
+              return (
+                <div
+                  key={index}
+                  className="rounded-2xl bg-white/5 border border-white/10 p-6 text-center"
+                >
+                  <Icon className="w-7 h-7 text-purple-300 mx-auto mb-3" />
+
+                  <p className="text-2xl font-semibold text-white">
+                    {count.toLocaleString()}
+                    {stat.value >= 10 && "+"}
+                  </p>
+
+                  <p className="text-sm text-white/70 mt-1">
+                    {stat.label}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </section>
 
 
-        <section className="relative z-10 grid md:grid-cols-2 gap-10 max-w-6xl">
-          <div className="group bg-white/10 backdrop-blur-xl rounded-3xl p-10 border border-white/20 hover:border-purple-400/50 hover:scale-[1.03] hover:shadow-[0_0_40px_rgba(82,39,255,0.25)] transition-all duration-500">
-            <div className="flex items-center gap-4 mb-6">
-              <Target className="w-10 h-10 text-purple-300" />
-              <h2 className="text-3xl font-bold text-white">Our Mission</h2>
-            </div>
-            <p className="text-lg text-white/85 leading-relaxed font-light">
-              To simplify web development education for everyone. We combine structure,
-              mentorship, and hands-on learning so that beginners grow into confident,
-              job-ready developers.
+        {/* ----------- MISSION & VISION ----------- */}
+        <section className="relative z-10 max-w-6xl w-full grid md:grid-cols-2 gap-10">
+
+
+          <div className="rounded-2xl bg-white/5 border border-white/10 p-10">
+            <span className="text-xs uppercase tracking-widest text-purple-300">
+              Our Purpose
+            </span>
+
+            <h2 className="text-2xl font-semibold text-white mt-3 mb-4">
+              Our Mission
+            </h2>
+
+            <p className="text-white/80 leading-relaxed max-w-prose">
+              To simplify web development education through clear learning roadmaps,
+              strong fundamentals, and hands-on practice — helping beginners grow into
+              confident, job-ready developers.
             </p>
           </div>
 
-          <div className="group bg-white/10 backdrop-blur-xl rounded-3xl p-10 border border-white/20 hover:border-purple-400/50 hover:scale-[1.03] hover:shadow-[0_0_40px_rgba(82,39,255,0.25)] transition-all duration-500">
-            <div className="flex items-center gap-4 mb-6">
-              <Lightbulb className="w-10 h-10 text-purple-300" />
-              <h2 className="text-3xl font-bold text-white">Our Vision</h2>
-            </div>
-            <p className="text-lg text-white/85 leading-relaxed font-light">
-              To be the global launchpad for self-taught developers - empowering learners
-              to build careers, products, and futures through accessible, high-quality tech education.
+
+          <div className="rounded-2xl bg-white/5 border border-white/10 p-10">
+            <span className="text-xs uppercase tracking-widest text-purple-300">
+              Our Direction
+            </span>
+
+            <h2 className="text-2xl font-semibold text-white mt-3 mb-4">
+              Our Vision
+            </h2>
+
+            <p className="text-white/80 leading-relaxed max-w-prose">
+              To become a trusted learning companion for self-taught developers
+              worldwide — guiding long-term careers, not just short-term courses.
             </p>
           </div>
+
         </section>
 
-        <section className="relative z-10 w-full max-w-7xl mb-20">
-          <h2 className="text-5xl font-bold text-white text-center mb-16 bg-gradient-to-r from-white via-purple-100 to-white bg-clip-text text-transparent">
-            Our Core Values
+
+        <section className="relative z-10 w-full max-w-7xl">
+          <h2 className="text-4xl font-semibold text-white text-center mb-14">
+            Core Values
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => {
               const Icon = value.icon;
               return (
                 <div
                   key={index}
-                  className="group bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/20 hover:border-purple-400/50 hover:scale-105 hover:shadow-[0_0_40px_rgba(82,39,255,0.25)] transition-all duration-500 text-center"
+                  className="rounded-2xl bg-white/5 border border-white/10 p-7
+                             hover:bg-white/10 transition duration-300"
                 >
-                  <div className="inline-flex p-5 bg-white/10 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <Icon className="w-10 h-10 text-white" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-purple-200">
+                  <Icon className="w-7 h-7 text-purple-300 mb-4" />
+                  <h3 className="text-lg font-semibold text-white mb-2">
                     {value.title}
                   </h3>
-                  <p className="text-white/85 text-sm leading-relaxed font-light">
+                  <p className="text-sm text-white/75 leading-relaxed">
                     {value.description}
                   </p>
                 </div>
@@ -143,6 +210,13 @@ const About = () => {
             })}
           </div>
         </section>
+
+        <section className="max-w-3xl text-center mt-10">
+          <p className="text-sm uppercase tracking-widest text-white/50">
+            Learn with clarity. Build with confidence.
+          </p>
+        </section>
+
       </div>
     </>
   );
