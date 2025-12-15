@@ -4,50 +4,43 @@ import { Globe, Palette, Code, Database } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import ColorBends from "../components/ColorBends";
 
-const stacks = [
+const topics = [
     {
-        title: "HTML - The Structure",
-        desc: `HTML (HyperText Markup Language) forms the very backbone of every web page. 
-    It defines the structure and meaning of your content - organizing text, images, links, and sections into a logical hierarchy. 
-    Think of it as the blueprint that everything else builds upon.`,
-        icon: <Globe className="w-14 h-14 text-orange-400" />,
+        title: "HTML",
+        icon: Globe,
+        desc:
+            "HTML defines the structure and meaning of content. It answers the question: what exists on this page?",
         link: "/html",
-        gradient: "from-orange-400/30 via-amber-400/20 to-yellow-400/10",
     },
     {
-        title: "CSS - The Design",
-        desc: `CSS (Cascading Style Sheets) gives style and life to the web. 
-    It defines colors, layouts, spacing, animations, and transitions - making your pages beautiful, responsive, and modern. 
-    Every polished UI you see online owes its beauty to CSS.`,
-        icon: <Palette className="w-14 h-14 text-blue-400" />,
+        title: "CSS",
+        icon: Palette,
+        desc:
+            "CSS defines how things appear. Layout, spacing, colors, responsiveness, and motion all live here.",
         link: "/css",
-        gradient: "from-blue-500/30 via-cyan-500/20 to-sky-400/10",
     },
     {
-        title: "JavaScript - The Logic",
-        desc: `JavaScript is the brain of web applications. 
-    It adds interactivity, logic, and dynamic updates - turning static pages into interactive experiences. 
-    From animations to APIs, JS is what makes the web *alive.*`,
-        icon: <Code className="w-14 h-14 text-yellow-400" />,
+        title: "JavaScript",
+        icon: Code,
+        desc:
+            "JavaScript defines how things behave. It connects user actions, logic, and external systems.",
         link: "/javascript",
-        gradient: "from-yellow-400/30 via-amber-400/20 to-orange-400/10",
     },
     {
-        title: "Database - The Memory",
-        desc: `Databases store, manage, and deliver data for applications. 
-    Whether it’s user information, content, or analytics - the database ensures your app remembers and responds intelligently. 
-    It’s the beating heart of full-stack systems.`,
-        icon: <Database className="w-14 h-14 text-green-400" />,
+        title: "Database",
+        icon: Database,
+        desc:
+            "Databases define memory. They allow applications to store, retrieve, and reason about data.",
         link: "/database",
-        gradient: "from-emerald-500/30 via-green-500/20 to-teal-400/10",
     },
 ];
 
-const TechStack = () => {
+export default function TechStack() {
     const navigate = useNavigate();
 
     return (
-        <div className="relative min-h-screen w-full text-gray-100 overflow-x-hidden">
+        <div className="relative min-h-screen text-gray-100 overflow-x-hidden">
+           
             <div className="fixed inset-0 -z-10">
                 <ColorBends
                     colors={["#ffd500", "#00ffcc", "#ff4b91"]}
@@ -61,75 +54,162 @@ const TechStack = () => {
                     noise={0.08}
                     transparent={false}
                 />
-                <div className="absolute inset-0 bg-black/60" />
+                <div className="absolute inset-0 bg-black/70" />
             </div>
-            <section className="relative text-center px-6 py-24 lg:py-40 max-w-5xl mx-auto mt-10">
-                <motion.h1
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="text-5xl md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-400 bg-clip-text text-transparent"
-                >
-                    What is the Tech Stack ..?
-                </motion.h1>
 
-                <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3, duration: 0.8 }}
-                    className="text-gray-300 text-lg leading-relaxed max-w-3xl mx-auto"
-                >
-                    Every modern web project runs on a collection of technologies called a
-                    <span className="text-cyan-400 font-semibold"> Tech Stack</span>. It’s the
-                    foundation that decides how your project is structured, how it looks,
-                    how it behaves, and how it communicates with users and databases.
-                    <br />
-                    <br />
-                    From designing intuitive frontends to building powerful backends,
-                    understanding your tech stack helps you make smarter, scalable, and
-                    efficient applications.
-                </motion.p>
-            </section>
+            
+            <main className="max-w-6xl mx-auto px-6 pt-32 pb-44 space-y-36">
 
-            <div className="w-full h-px bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent mb-16"></div>
-
-            <section className="grid grid-cols-1 md:grid-cols-2 gap-10 px-8 max-w-7xl mx-auto pb-32">
-                {stacks.map((stack, index) => (
-                    <motion.div
-                        key={stack.title}
-                        initial={{ opacity: 0, y: 80 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.2, duration: 0.7 }}
-                        viewport={{ once: true }}
-                        className={`relative rounded-3xl p-10 backdrop-blur-xl border border-white/10 shadow-2xl 
-              bg-gradient-to-br ${stack.gradient} hover:shadow-cyan-500/20 hover:border-cyan-400/30 transition-all duration-300`}
+                {/* HERO */}
+                <section>
+                    <motion.h1
+                        initial={{ opacity: 0, y: 40 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="text-5xl md:text-6xl font-extrabold leading-tight mb-10"
                     >
-                        <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-white/5 to-transparent opacity-20"></div>
+                        <span className="block text-gray-200">What really is</span>
+                        <span className="block bg-gradient-to-r from-cyan-400 to-indigo-400 bg-clip-text text-transparent">
+                        a Tech Stack ?
+                        </span>
+                    </motion.h1>
 
-                        <div className="relative flex flex-col gap-5">
-                            <div className="flex items-center justify-center mb-3">
-                                {stack.icon}
-                            </div>
-                            <h2 className="text-2xl font-bold text-center">{stack.title}</h2>
-                            <p className="text-gray-300 text-sm text-center leading-relaxed whitespace-pre-line">
-                                {stack.desc}
-                            </p>
-                            <button
-                                onClick={() => navigate(stack.link)}
-                                className="mt-6 mx-auto bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 border border-cyan-400/30 font-medium py-2 px-5 rounded-xl transition-colors"
-                            >
-                                Dive Deeper →
-                            </button>
-                        </div>
-                    </motion.div>
-                ))}
-            </section>
+                    <p className="text-xl text-gray-300 leading-relaxed max-w-4xl">
+                        A tech stack is the set of technologies that work together to build,
+                        run, and scale an application. Each part exists to solve a specific
+                        problem - structure, appearance, behavior, or data.
+                    </p>
+                </section>
 
-            <div className="absolute top-0 left-0 w-96 h-96 bg-cyan-500/20 blur-[120px] -z-10 animate-pulse"></div>
-            <div className="absolute bottom-0 right-0 w-[30rem] h-[30rem] bg-blue-700/20 blur-[160px] -z-10 animate-pulse"></div>
-            <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-indigo-600/20 blur-[120px] -z-10"></div>
+                
+                <section className="relative">
+                    <div className="absolute left-0 top-0 h-full w-px bg-gradient-to-b from-transparent via-cyan-400/40 to-transparent" />
+                    <blockquote className="pl-10 text-2xl md:text-3xl font-light text-gray-200 leading-snug max-w-4xl">
+                        “A tech stack is not about tools -
+                        <span className="text-cyan-300"> it’s about responsibilities.</span>”
+                    </blockquote>
+                </section>
+
+                
+                <section className="grid md:grid-cols-2 gap-16">
+                    <div className="space-y-6">
+                        <h2 className="text-3xl font-semibold text-cyan-300">
+                            Why tech stacks exist
+                        </h2>
+                        <p className="text-gray-300 leading-relaxed">
+                            Modern software is too complex to be built with a single technology.
+                            Splitting responsibilities allows systems to grow without becoming
+                            fragile or impossible to maintain.
+                        </p>
+                        <p className="text-gray-400">
+                            A well-chosen tech stack makes collaboration easier, performance
+                            predictable, and development sustainable.
+                        </p>
+                    </div>
+
+                    <div className="rounded-3xl border border-white/10 bg-white/5 p-8 space-y-4">
+                        <p className="text-gray-300">✓ Clear separation of concerns</p>
+                        <p className="text-gray-300">✓ Scalable architecture</p>
+                        <p className="text-gray-300">✓ Easier debugging</p>
+                        <p className="text-gray-300">✓ Long-term maintainability</p>
+                    </div>
+                </section>
+
+                {/* CONCEPT SECTIONS */}
+                <section>
+                    <h2 className="text-4xl font-semibold mb-6">
+                        Core parts of a web tech stack
+                    </h2>
+
+                    <p className="text-gray-400 max-w-3xl mb-20 leading-relaxed">
+                        A modern web application is composed of multiple technologies, each with a
+                        clearly defined responsibility. These parts don’t replace each other —
+                        they work together to form a complete system.
+                    </p>
+
+                    <div className="space-y-24">
+                        {topics.map((item, i) => {
+                            const Icon = item.icon;
+                            return (
+                                <motion.article
+                                    key={item.title}
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: i * 0.1 }}
+                                    className="relative"
+                                >
+                                    
+                                    <div className="absolute left-0 top-0 h-full w-px bg-gradient-to-b from-transparent via-cyan-400/30 to-transparent" />
+
+                                    <div className="pl-10 grid md:grid-cols-[auto_1fr] gap-8">
+                                        
+                                        <div className="mt-1">
+                                            <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
+                                                <Icon className="w-7 h-7 text-cyan-300" />
+                                            </div>
+                                        </div>
+
+                                        
+                                        <div className="max-w-4xl space-y-4">
+                                            <h3 className="text-2xl font-semibold tracking-tight">
+                                                {item.title}
+                                            </h3>
+
+                                            <p className="text-gray-300 leading-relaxed">
+                                                {item.desc}
+                                            </p>
+
+                                            
+                                            <div className="rounded-xl bg-white/5 border border-white/10 px-5 py-4 text-sm text-gray-400 leading-relaxed">
+                                                <span className="text-cyan-300 font-medium">
+                                                    What problem it solves:
+                                                </span>{" "}
+                                                This part of the stack focuses on a single responsibility,
+                                                allowing the system to remain flexible, scalable, and easier
+                                                to maintain as it grows.
+                                            </div>
+
+                                            <button
+                                                onClick={() => navigate(item.link)}
+                                                className="inline-flex items-center gap-2 text-cyan-300 hover:text-cyan-200 transition text-sm"
+                                            >
+                                                Learn More →
+                                            </button>
+                                        </div>
+                                    </div>
+                                </motion.article>
+                            );
+                        })}
+                    </div>
+                </section>
+
+                {/* FINAL CALLOUT */}
+                <section className="relative rounded-3xl border border-white/10 bg-gradient-to-br from-cyan-400/10 via-transparent to-indigo-400/10 p-14 overflow-hidden">
+
+                    
+                    <div className="absolute -top-24 -right-24 w-72 h-72 bg-cyan-400/10 blur-[120px]" />
+
+                    <div className="relative max-w-4xl space-y-6">
+                        <h2 className="text-2xl md:text-3xl font-semibold text-cyan-300">
+                            A tech stack is a set of decisions
+                        </h2>
+
+                        <p className="text-gray-300 leading-relaxed text-lg">
+                            There is no universally “best” tech stack. Every stack represents a series
+                            of trade-offs — between performance, simplicity, scalability, and
+                            developer experience.
+                        </p>
+
+                        <p className="text-gray-400 leading-relaxed">
+                            Understanding what each part of the stack does allows you to choose tools
+                            intentionally, rather than following trends or copying architectures
+                            blindly.
+                        </p>
+                    </div>
+                </section>
+
+
+            </main>
         </div>
     );
-};
-
-export default TechStack;
+}
