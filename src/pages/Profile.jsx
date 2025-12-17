@@ -358,215 +358,180 @@ export default function Profile() {
 
       case "dashboard":
         return (
-          <div className="relative min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50 p-6 md:p-10 overflow-hidden">
+          <div className="min-h-screen bg-[#fafafa] px-4 sm:px-6 lg:px-12 py-10">
 
-            <div className="absolute top-[-10%] right-[-10%] w-[400px] h-[400px] bg-purple-300 rounded-full blur-3xl opacity-25"></div>
-            <div className="absolute bottom-[-20%] left-[-10%] w-[500px] h-[500px] bg-blue-200 rounded-full blur-3xl opacity-20"></div>
-
-            {/* Hero Section */}
-            <div className="relative z-10 bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-100 text-white rounded-3xl p-8 md:p-12 shadow-2xl mb-10 flex flex-col md:flex-row items-center md:items-end justify-between">
-              <div>
-                <h2 className="text-3xl md:text-4xl font-extrabold text-gray-700">Welcome back, {profile.name || "User"} 👋</h2>
-                <p className="text-sm text-black mt-2">
-                  Here's a quick overview of your productivity and recent activity.
-                </p>
-              </div>
-              <div className="mt-6 md:mt-0 flex items-center gap-5 bg-white/50 backdrop-blur-xl px-5 py-3 rounded-full shadow-lg">
-                <div className="w-12 h-12 rounded-full bg-black/70 flex items-center justify-center pb-1 text-xl font-semibold text-white">
-                  {profile.name?.charAt(0).toUpperCase() || "U"}
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-black">@{profile.username}</p>
-                  <p className="text-xs text-gray-700">{profile.email}</p>
-                </div>
-              </div>
+            {/* ================= INTRO ================= */}
+            <div className="max-w-7xl mx-auto mb-10">
+              <p className="text-xs uppercase tracking-widest text-gray-400 mb-2">
+                Overview
+              </p>
+              <h1 className="text-3xl md:text-4xl font-serif font-medium text-gray-900">
+                Hello {profile.name || "there"} 👋
+              </h1>
+              <p className="text-sm text-gray-500 mt-2 max-w-xl">
+                This is your personal space — a reflection of what you’ve been
+                building and learning recently.
+              </p>
             </div>
 
-            {/* Stats Bar */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
-              {[
-                {
-                  title: "Notes Created",
-                  value: loading ? "..." : notes.length.toString(),
-                  color: "from-blue-500 to-indigo-500",
-                  icon: StickyNote,
-                },
-                {
-                  title: "Tasks Completed",
-                  value: loadingTasks
-                    ? "..."
-                    : `${completedTasks} / ${totalTasks}`,
-                  color: "from-emerald-500 to-teal-500",
-                  icon: ClipboardList,
-                  showProgress: true,
-                },
-                {
-                  title: "Account Age",
-                  value: getAccountAge(profile.createdAt),
-                  color: "from-purple-500 to-pink-500",
-                  icon: FileText,
-                },
-              ].map(({ title, value, color, icon: Icon, showProgress }) => (
-                <div
-                  key={title}
-                  className="relative overflow-hidden bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6"
-                >
+            {/* ================= METRIC RAIL ================= */}
+            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-10 mb-16">
+
+              {/* Left rail */}
+              <div className="space-y-6">
+                {[
+                  {
+                    label: "Notes",
+                    value: loading ? "…" : notes.length,
+                  },
+                  {
+                    label: "Tasks",
+                    value: loadingTasks ? "…" : `${completedTasks}/${totalTasks}`,
+                    progress: true,
+                  },
+                  {
+                    label: "Account age",
+                    value: getAccountAge(profile.createdAt),
+                  },
+                ].map((item, i) => (
                   <div
-                    className={`absolute inset-0 bg-gradient-to-br ${color} opacity-10`}
-                  ></div>
-                  <div className="relative z-10 flex items-center justify-between">
-                    <div className="w-full">
-                      <h4 className="text-gray-500 text-sm font-medium">{title}</h4>
-                      <p className="text-2xl font-bold text-gray-800 mt-1">{value}</p>
+                    key={i}
+                    className="relative bg-white px-6 py-7 rounded-[28px]
+                   shadow-[0_20px_50px_rgba(0,0,0,0.05)]
+                   border border-gray-100"
+                  >
+                    <p className="text-xs text-gray-400 mb-2">
+                      {item.label}
+                    </p>
+                    <p className="text-3xl font-medium text-gray-900">
+                      {item.value}
+                    </p>
 
-                      {showProgress && totalTasks > 0 && (
-                        <div className="mt-3 w-full h-2 bg-gray-200 rounded-full overflow-hidden">
-                          <div
-                            className={`h-full transition-all ${taskProgress < 40
-                              ? "bg-red-400"
-                              : taskProgress < 70
-                                ? "bg-orange-400"
-                                : "bg-green-500"
-                              }`}
-                            style={{ width: `${taskProgress}%` }}
-                          ></div>
-                        </div>
-                      )}
-                    </div>
-                    <div
-                      className={`w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-br ${color} text-white shadow-md ml-4`}
-                    >
-                      <Icon size={22} />
-                    </div>
+                    {item.progress && totalTasks > 0 && (
+                      <div className="mt-4 h-1 bg-gray-200 rounded-full">
+                        <div
+                          className="h-full bg-gray-900 rounded-full"
+                          style={{ width: `${taskProgress}%` }}
+                        />
+                      </div>
+                    )}
                   </div>
+                ))}
+              </div>
+
+
+              {/* Activity well */}
+              <div className="relative bg-white rounded-[36px] border border-gray-100
+                  shadow-[0_30px_80px_rgba(0,0,0,0.06)] p-8">
+
+                <div className="flex justify-between items-center mb-6">
+                  <h2 className="text-xl font-medium text-gray-900">
+                    Activity
+                  </h2>
+                  <span className="text-xs text-gray-400">
+                    Live feed
+                  </span>
                 </div>
-              ))}
-            </div>
 
-
-            {/* Split Panels */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              {/* Recent Activity Feed */}
-              <div className="lg:col-span-2 bg-white rounded-3xl shadow-md border border-gray-100 p-8 hover:shadow-xl transition-all duration-300">
-                <h3 className="text-xl font-semibold text-gray-800 mb-6 flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 bg-blue-600 rounded-full animate-pulse"></span>
-                  Recent Activity
-                </h3>
-
-                <ul className="space-y-4 text-gray-700 text-sm max-h-64 overflow-y-auto pr-2">
+                <div className="max-h-[420px] overflow-y-auto space-y-5 pr-3">
                   {activities.length > 0 ? (
-                    activities.slice(0, 10).map((item, i) => (
-                      <li
+                    activities.slice(0, 20).map((item, i) => (
+                      <div
                         key={item._id || i}
-                        className="flex items-center justify-between p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition-all duration-200"
+                        className="relative pl-6"
                       >
-                        <div className="flex items-center gap-3">
-                          <span
-                            className={`w-2.5 h-2.5 rounded-full ${colorMap[item.type] || "bg-blue-500"
-                              }`}
-                          ></span>
+                        <span
+                          className={`absolute left-0 top-2 w-2 h-2 rounded-full ${colorMap[item.type] || "bg-gray-900"
+                            }`}
+                        />
+                        <p className="text-sm text-gray-800 leading-relaxed">
                           {item.message}
-                        </div>
-
-                        <span className="text-xs text-gray-400">
+                        </p>
+                        <p className="text-xs text-gray-400 mt-1">
                           {formatTimeAgo(item.createdAt)}
-                        </span>
-                      </li>
+                        </p>
+                      </div>
                     ))
                   ) : (
-                    <p className="text-gray-400 text-sm">No recent activity yet</p>
+                    <p className="text-sm text-gray-400">
+                      No recent activity yet
+                    </p>
                   )}
-                </ul>
-              </div>
-
-
-
-              {/* Insights Panel */}
-              <div className="rounded-3xl p-7 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.06)] border border-gray-100 relative overflow-hidden">
-
-                {/* Soft background gradient */}
-                <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-purple-50 to-blue-50 opacity-60"></div>
-
-                <div className="relative z-10">
-                  <h3 className="text-lg font-semibold text-gray-800 mb-5">Performance Insights</h3>
-
-                  {/* Productivity Score */}
-                  <div className="mb-6">
-                    <p className="text-sm text-gray-600">Productivity Score</p>
-
-                    <div className="flex items-center gap-3 mt-2">
-                      {/* Circular Progress */}
-                      <div className="w-12 h-12 relative">
-                        <svg className="w-full h-full transform -rotate-90">
-                          <circle
-                            cx="24"
-                            cy="24"
-                            r="20"
-                            stroke="#e5e7eb"
-                            strokeWidth="5"
-                            fill="transparent"
-                          />
-                          <circle
-                            cx="24"
-                            cy="24"
-                            r="20"
-                            stroke="#6366f1"
-                            strokeWidth="5"
-                            fill="transparent"
-                            strokeDasharray={125}
-                            strokeDashoffset={125 - (125 * productivityScore) / 100}
-                            strokeLinecap="round"
-                          />
-                        </svg>
-                      </div>
-
-                      <div>
-                        <p className="font-bold text-xl text-gray-800">{productivityScore}%</p>
-                        <p className="text-xs text-gray-500 -mt-1">Efficiency this week</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Quick Weekly Stats */}
-                  <div className="grid grid-cols-2 gap-4 mb-6">
-                    <div className="p-4 bg-gray-50 rounded-xl border border-gray-100">
-                      <p className="text-xs text-gray-500">Tasks Completed</p>
-                      <p className="text-lg font-semibold text-gray-800 mt-1">
-                        {tasksCompletedThisWeek}
-                      </p>
-                    </div>
-
-                    <div className="p-4 bg-gray-50 rounded-xl border border-gray-100">
-                      <p className="text-xs text-gray-500">Notes Created</p>
-                      <p className="text-lg font-semibold text-gray-800 mt-1">
-                        {notesCreatedThisWeek}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Streak */}
-                  <div className="p-4 bg-gradient-to-r from-purple-500/10 to-indigo-500/10 rounded-xl border border-indigo-100 mb-5">
-                    <div className="flex items-center justify-between">
-                      <p className="text-sm text-gray-600">Active Streak (beta)</p>
-                      <p className="text-lg font-semibold text-indigo-600">{streak} days 🔥</p>
-                    </div>
-                  </div>
-
-                  {/* Mini Insight Row */}
-                  <p className="text-xs text-gray-500 mb-4">
-                    {totalActivities} interactions logged this week
-                  </p>
-
-                  {/* CTA */}
-                  <button
-                    onClick={() => setShowReport(true)}
-                    className="w-full py-2 bg-indigo-600 text-white rounded-xl text-sm font-medium hover:bg-indigo-700 transition"
-                  >
-                    View Full Report →
-                  </button>
                 </div>
               </div>
             </div>
+
+
+
+            {/* ================= PRODUCTIVITY CANVAS ================= */}
+            <div className="max-w-7xl mx-auto bg-neutral-900 text-white
+                rounded-[48px] px-8 py-12">
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
+
+                {/* Left narrative */}
+                <div className="md:col-span-1">
+                  <p className="text-xs uppercase tracking-widest opacity-60 mb-3">
+                    Weekly performance
+                  </p>
+                  <p className="text-4xl font-medium">
+                    {productivityScore}%
+                  </p>
+                  <p className="text-sm opacity-70 mt-3 max-w-xs">
+                    Based on how consistently you complete tasks and create notes.
+                  </p>
+                </div>
+
+                {/* Center visual */}
+                <div className="md:col-span-1">
+                  <div className="h-2 w-full bg-white/20 rounded-full">
+                    <div
+                      className="h-full bg-white rounded-full"
+                      style={{ width: `${productivityScore}%` }}
+                    />
+                  </div>
+
+                  <div className="flex justify-between text-xs opacity-60 mt-2">
+                    <span>Low</span>
+                    <span>High</span>
+                  </div>
+                </div>
+
+                {/* Right stats */}
+                <div className="md:col-span-1 space-y-4">
+                  <div>
+                    <p className="text-xs opacity-60">Tasks this week</p>
+                    <p className="text-2xl font-medium">
+                      {tasksCompletedThisWeek}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-xs opacity-60">Notes this week</p>
+                    <p className="text-2xl font-medium">
+                      {notesCreatedThisWeek}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-xs opacity-60">Streak</p>
+                    <p className="text-2xl font-medium">
+                      {streak} days 🔥
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <button
+                onClick={() => setShowReport(true)}
+                className="mt-10 px-6 py-3 rounded-full
+               bg-white text-black text-sm font-medium
+               hover:opacity-90 transition"
+              >
+                View full report →
+              </button>
+            </div>
+
+
+
           </div>
         );
 

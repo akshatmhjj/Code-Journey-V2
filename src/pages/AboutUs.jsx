@@ -108,7 +108,6 @@ const About = () => {
           </p>
         </section>
 
-        {/* ----------- MOTIVATIONAL QUOTE ----------- */}
         <section className="max-w-3xl text-center">
           <p className="text-xl italic text-white/80">
             “You don’t need to learn everything.
