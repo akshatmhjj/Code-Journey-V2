@@ -3,6 +3,7 @@ import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import api from "../lib/api";
+import CodeJourneyLogo from "../assets/react.svg";
 import {
   getRecentActivity,
   getTasks,
@@ -369,7 +370,7 @@ export default function Profile() {
                 Hello {profile.name || "there"} 👋
               </h1>
               <p className="text-sm text-gray-500 mt-2 max-w-xl">
-                This is your personal space — a reflection of what you’ve been
+                This is your personal space, a reflection of what you’ve been
                 building and learning recently.
               </p>
             </div>
@@ -1114,7 +1115,7 @@ export default function Profile() {
 
   return (
     <div className="h-screen flex overflow-hidden bg-[url('https://tailframes.com/images/squares-bg.webp')] bg-contain bg-fixed bg-center bg-repeat text-gray-800">
-      {/* Sidebar */}
+      
       <aside
         className={`fixed md:static top-0 left-0 h-full w-64 bg-white border-r border-gray-200 p-5 flex flex-col justify-between transform transition-transform duration-300 z-40 ${sidebarOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
           }`}
@@ -1187,7 +1188,6 @@ export default function Profile() {
         </div>
       </aside>
 
-      {/* Overlay for mobile */}
       {sidebarOpen && (
         <div
           onClick={() => setSidebarOpen(false)}
@@ -1197,9 +1197,20 @@ export default function Profile() {
 
       {/* Main Content */}
       <main className="flex-1 h-full overflow-y-auto scroll-smooth">
-        {/* Mobile Top Bar */}
         <div className="flex items-center justify-between bg-white border-b border-gray-200 px-4 py-3 md:hidden">
-          <h1 className="font-semibold text-xl">Hello, {profile.name || "Profile"}</h1>
+
+          <div className="flex items-center gap-2">
+            <img
+              src={CodeJourneyLogo}
+              alt="Code Journey Logo"
+              className="w-8 h-8"
+            />
+            <span className="font-semibold text-xl text-gray-900">
+              Code Journey
+            </span>
+          </div>
+
+          
           <button
             onClick={() => setSidebarOpen(true)}
             className="text-blue-700 hover:text-gray-900"
@@ -1207,6 +1218,7 @@ export default function Profile() {
             <Menu size={22} />
           </button>
         </div>
+
 
         {renderContent()}
       </main>
