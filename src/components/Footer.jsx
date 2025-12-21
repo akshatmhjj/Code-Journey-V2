@@ -53,7 +53,7 @@ const Footer = () => {
             <div className="flex space-x-4 text-gray-500">
               <a href="#" className="hover:text-white transition-colors"><FaTwitter size={20} /></a>
               <a href="#" className="hover:text-white transition-colors"><FaFacebookF size={20} /></a>
-              <a href="#" className="hover:text-white transition-colors"><FaInstagram size={20} /></a>
+              <a href="https://www.instagram.com/codejourneyhq/?hl=en" className="hover:text-white transition-colors"><FaInstagram size={20} /></a>
             </div>
           </div>
         </div>

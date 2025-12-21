@@ -30,7 +30,7 @@ const STAGES = [
     {
         id: "html",
         title: "HTML - Structure",
-        time: "7-10 days",
+        time: "10-15 days",
         learns: [
             "Semantic HTML elements",
             "Headings, sections, and layout structure",
@@ -54,7 +54,7 @@ const STAGES = [
     {
         id: "css",
         title: "CSS - Layout & Design",
-        time: "10-15 days",
+        time: "20-25 days",
         learns: [
             "Box model and spacing",
             "Flexbox and Grid",
@@ -78,7 +78,7 @@ const STAGES = [
     {
         id: "javascript",
         title: "JavaScript - Logic",
-        time: "30-45 days",
+        time: "50-65 days",
         learns: [
             "Variables, functions, and conditions",
             "DOM manipulation",
@@ -102,7 +102,7 @@ const STAGES = [
     {
         id: "database",
         title: "Databases",
-        time: "20-35 days",
+        time: "35-45 days",
         learns: [
             "What databases are and why they exist",
             "SQL vs NoSQL",
@@ -152,17 +152,18 @@ export default function RoadmapPage() {
     const pageRef = useRef(null);
     const stagesRef = useRef(null);
 
-    
+
     const { scrollYProgress: pageScroll } = useScroll({
         target: pageRef,
         offset: ["start start", "end end"],
     });
 
-    
+
     const { scrollYProgress: stagesScroll } = useScroll({
         target: stagesRef,
-        offset: ["start start", "end end"],
+        offset: ["start 50%", "end 80%"],
     });
+
 
     const lineHeight = useTransform(stagesScroll, [0, 1], ["0%", "100%"]);
 
@@ -180,7 +181,7 @@ export default function RoadmapPage() {
             {/* HERO */}
             <section className="min-h-[90vh] flex flex-col justify-center items-center text-center px-6 relative z-10 mb-24">
 
-                
+
                 <motion.p
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -191,7 +192,7 @@ export default function RoadmapPage() {
                     They fail at knowing <span className="text-gray-300">what to learn first</span>.
                 </motion.p>
 
-                
+
                 <motion.h1
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -207,7 +208,7 @@ export default function RoadmapPage() {
                     </span>
                 </motion.h1>
 
-                
+
                 <motion.p
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -219,7 +220,7 @@ export default function RoadmapPage() {
                     Just the right concepts, in the right order.
                 </motion.p>
 
-               
+
                 <motion.div
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: 1 }}
@@ -228,60 +229,82 @@ export default function RoadmapPage() {
                     bg-gradient-to-r from-transparent via-cyan-400 to-transparent"
                 />
 
-                
+
                 <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.9 }}
-                    className="mt-10 max-w-3xl text-gray-400 space-y-4"
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.85 }}
+                    className="mt-10 max-w-3xl text-gray-400 space-y-4 text-center"
                 >
                     <p>
-                        This roadmap isn’t here to impress you.
-                        It’s here to <span className="text-gray-300">keep you oriented</span>.
+                        At some points, things will feel slow.
                     </p>
 
                     <p>
-                        You won’t move fast.
-                        You won’t feel lost.
-                        And you won’t wonder why things suddenly stopped making sense.
+                        At other points, everything will suddenly click.
+                        Both phases are normal.
                     </p>
 
                     <p className="text-gray-300">
-                        Follow it calmly - and the pieces will start connecting on their own.
+                        The goal isn’t speed - it’s reaching a point where concepts stop feeling fragile.
                     </p>
                 </motion.div>
 
+
             </section>
 
+            <section className="max-w-5xl mx-auto px-6 mb-40 relative z-10">
 
 
-            {/* HOW TO USE */}
-            <section className="max-w-4xl mx-auto px-6 mb-32 relative z-10">
-                <h2 className="text-3xl font-bold mb-10 text-center">
-                    <p className="text-center text-gray-400 mb-12 max-w-2xl mx-auto">
+                <h2 className="text-3xl font-bold mb-24 text-center">
+                    <p className="text-center text-gray-400 mb-10 max-w-2xl mx-auto">
                         Think of this less like instructions - and more like a calm voice saying,
                         “You’re on the right path. Just don’t sprint.”
                     </p>
-
-                    How to Use This Roadmap
                 </h2>
-                <div className="mt-4 mb-10 h-1 w-32 bg-gradient-to-r from-purple-700 via-blue-600 to-cyan-400 mx-auto rounded-full" />
 
-                <div className="grid md:grid-cols-2 gap-12 text-gray-300">
-                    <p>
-                        📘 Follow the stages in order. Each one prepares you for the next.
-                    </p>
-                    <p>
-                        💡 Don’t rush forward - understanding compounds over time.
-                    </p>
-                    <p>
-                        🔍 Build small things as you go. Progress beats perfection.
-                    </p>
-                    <p>
-                        🧠 Feeling stuck is normal. It usually means you’re learning.
-                    </p>
+                
+                <div className="relative grid md:grid-cols-3 gap-12 items-start">
+                    
+                    <div className="group relative p-8 rounded-3xl bg-white/5 border border-cyan-400/20 backdrop-blur-xl">
+                        <div className="font-semibold absolute -top-4 left-6 px-3 py-1 text-xs rounded-full bg-cyan-400/10 text-cyan-300 border border-cyan-400/20">
+                            Phase 01
+                        </div>
+
+                        <h3 className="text-xl font-semibold mb-4">Start slowly</h3>
+                        <p className="text-gray-400 leading-relaxed">
+                            Read, watch, and try things without worrying about speed.
+                            Early clarity matters more than early progress.
+                        </p>
+                    </div>
+
+                    <div className="group relative p-8 rounded-3xl bg-white/5 border border-indigo-400/20 backdrop-blur-xl md:mt-16">
+                        <div className="font-semibold absolute -top-4 left-6 px-3 py-1 text-xs rounded-full bg-indigo-400/10 text-indigo-300 border border-indigo-400/20">
+                            Phase 02
+                        </div>
+
+                        <h3 className="text-xl font-semibold mb-4">Feel stuck</h3>
+                        <p className="text-gray-400 leading-relaxed">
+                            Confusion shows up when concepts start overlapping.
+                            This is not a problem — it’s the signal to pause and explore.
+                        </p>
+                    </div>
+
+                    <div className="group relative p-8 rounded-3xl bg-white/5 border border-purple-400/20 backdrop-blur-xl md:mt-32">
+                        <div className="font-semibold absolute -top-4 left-6 px-3 py-1 text-xs rounded-full bg-purple-400/10 text-purple-300 border border-purple-400/20">
+                            Phase 03
+                        </div>
+
+                        <h3 className="text-xl font-semibold mb-4">Build confidence</h3>
+                        <p className="text-gray-400 leading-relaxed">
+                            Things begin to connect naturally.
+                            Small projects start making sense without forcing them.
+                        </p>
+                    </div>
                 </div>
+
             </section>
+
 
             {/* ROADMAP MAP */}
             <RoadmapMap stages={STAGES} progress={pageScroll} />
@@ -289,10 +312,8 @@ export default function RoadmapPage() {
                 ref={stagesRef}
                 className="relative max-w-5xl mx-auto px-6 pb-40 z-10">
 
-                
                 <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[3px] bg-white/10 rounded-full h-full" />
 
-                
                 <motion.div
                     style={{ height: lineHeight }}
                     className="absolute left-1/2 top-0 -translate-x-1/2 w-[3px]
@@ -311,6 +332,17 @@ export default function RoadmapPage() {
                     ))}
                 </div>
             </div>
+
+            <div className="relative max-w-3xl mx-auto px-6 mt-24 mb-20 text-center text-gray-400 text-sm leading-relaxed z-10">
+                <p>
+                    <span className="font-semibold text-gray-300">NOTE:</span>{" "}
+                    The time ranges mentioned above are estimates, not deadlines.
+                    Everyone learns at a different pace, and your background, consistency,
+                    and depth of understanding will affect how long each stage takes.
+                    Move forward when concepts feel clear, not when the calendar says you should.
+                </p>
+            </div>
+
 
         </div>
     );
@@ -371,8 +403,8 @@ function StageCard({ stage, index }) {
             transition={{ duration: 0.8 }}
             className="relative"
         >
-            
-            <div className="mb-4 font-semibold text-sm text-cyan-300 flex items-center gap-3">
+
+            <div className="mb-4 font-semibold text-md text-cyan-300 flex items-center gap-3">
                 <span>Stage {index + 1}</span>
                 {stage.time && (
                     <span className="text-gray-400">· {stage.time}</span>

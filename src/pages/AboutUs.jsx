@@ -94,7 +94,7 @@ const About = () => {
               text={["About Code Journey"]}
               typingSpeed={60}
               pauseDuration={1200}
-              showCursor={true}
+              showCursor={false}
             />
           </h1>
 
@@ -145,7 +145,7 @@ const About = () => {
 
 
         {/* ----------- MISSION & VISION ----------- */}
-        <section className="relative z-10 max-w-6xl w-full grid md:grid-cols-2 gap-10">
+        <section className="relative z-10 max-w-6xl w-full grid md:grid-cols-2 gap-16">
 
 
           <div className="rounded-2xl bg-white/5 border border-white/10 p-10">
