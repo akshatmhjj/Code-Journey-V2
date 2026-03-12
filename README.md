@@ -22,20 +22,6 @@ So Code Journey:
 
 ---
 
-## 💡 Why React + Vite?
-
-| Tool | Reason for Use |
-|------|----------------|
-| **React** | Component-based UI architecture makes it easy to break lessons into reusable blocks (cards, previews, sections). It’s widely used, perfect for dynamic content and animations. |
-| **Vite** | Offers lightning-fast development with Hot Module Reload (HMR). Unlike Create React App, Vite is leaner, faster, and ideal for educational prototypes. |
-| **Tailwind CSS** | Speeds up styling with utility classes. Since every section of Code Journey has unique colors, gradients, and layouts, Tailwind keeps styles organized and reusable. |
-| **Framer Motion** | Animations are key to engagement. Framer Motion helps create transitions, reveals, and interactions that feel smooth and organic. |
-| **Shadcn/UI** | Provides elegant, pre-built UI components that integrate seamlessly with Tailwind. Used for buttons, cards, modals, etc., maintaining visual consistency. |
-| **Lucide Icons** | Clean, scalable icon set. Helps visually explain content (like HTML tags, database icons, etc.) for easier concept recall. |
-
-
----
-
 ## 🧱 Tech Stack Breakdown
 
 ### 🖥️ Frontend
@@ -54,18 +40,6 @@ So Code Journey:
 
 ---
 
-## ⚙️ Features and Their Purpose
-
-| Feature | Why It’s Added |
-|----------|----------------|
-| **Interactive Code Examples** | Helps learners connect JS syntax with real browser output — turning theory into visible feedback. |
-| **Framer Motion Animations** | Makes learning lively and keeps users engaged — motion draws attention to new content naturally. |
-| **Tailwind Styling** | Simplifies UI adjustments and ensures design consistency without long CSS files. |
-| **Shadcn Components** | Prevents “UI fatigue” by giving ready-made, modern building blocks for modals, tabs, buttons, etc. |
-| **Routing (React Router)** | Allows each concept to exist on its own URL path (`/html`, `/css`, `/js`, etc.) — organized and scalable. |
-| **Vercel Deployment** | Provides instant hosting with automatic redeployment on GitHub push — making updates effortless. |
-
----
 
 
 
