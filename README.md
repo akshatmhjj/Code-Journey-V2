@@ -4,7 +4,7 @@
 
 The project uses a modern front-end stack with **React + Vite**, combining **speed, scalability, and interactivity**. It’s crafted to make learning **visual, animated, and hands-on** — helping users not just read code, but actually **see it come alive**.
 
-🔗 **Live Project:** [https://code-journey-zeta.vercel.app/](https://code-journey-zeta.vercel.app/)
+🔗 **Live Project:** [https://codejourney.space](https://code-journey-zeta.vercel.app/)
 
 ---
 
